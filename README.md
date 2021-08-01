@@ -1,7 +1,7 @@
 # EAMARRY.COM
 
 
-[![license](https://img.shields.io/github/license/papatekken/eammary)](https://www.gnu.org/licenses/agpl-3.0)
+[![license](https://img.shields.io/github/license/papatekken/eamarry)](https://www.gnu.org/licenses/agpl-3.0)
 
 
 A simple website to celebrate a special day in my life.
