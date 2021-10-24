@@ -19,7 +19,8 @@ The site applied with HTML, CSS and javascript only. To make it works you have t
 /video/video5.mp4
 
 ## License
-[GNU AGPLv3](https://github.com/papatekken/eamarry/LICENSE)
+[GNU AGPLv3](https://github.com/papatekken/eamarry/blob/main/LICENSE)
+			 
 
 ## Contact
 Created by [@papatekken](papatekken@gmail.com) - feel free to contact me!
