@@ -21,7 +21,7 @@ var diff_date =  dt1 - dt2;
 
 var num_year = Math.floor(diff_date/31536000000);
 var num_month = Math.floor((diff_date % 31536000000)/2628000000);
-var num_day = Math.floor(((diff_date % 31536000000) % 2628000000)/86400000);
+var num_day = Math.floor(((diff_date % 31536000000) % 2628000000)/86400000) - leapYearCount(2013,12,7);
 var num_hour = Math.floor((((diff_date % 31536000000) % 2628000000) %86400000)/3600000);
 var num_min = Math.floor(((((diff_date % 31536000000) % 2628000000) %86400000)%3600000) /60000);
 var num_sec = Math.floor((((((diff_date % 31536000000) % 2628000000) %86400000) %3600000) %60000)/1000);
@@ -29,26 +29,46 @@ var num_sec = Math.floor((((((diff_date % 31536000000) % 2628000000) %86400000) 
     num_hour = (num_hour < 10) ? " " + num_hour : num_hour;
     num_min = (num_min < 10) ? " " + num_min : num_min;
     num_sec = ( num_sec < 10) ? " " + num_sec : num_sec;  
+	
 var dategap = num_year + ' years ' + num_month + '  months ' + num_day + ' days ' + num_hour + ' hours '  + num_min + ' minutes ' + num_sec + ' seconds ' ;
 
-
-	
-    var Currdate = new Date();
-    var h = Currdate.getHours(); // 0 - 23
-    var m = Currdate.getMinutes(); // 0 - 59
-    var s = Currdate.getSeconds(); // 0 - 59
-    
-    h = (h < 10) ? "0" + h : h;
-    m = (m < 10) ? "0" + m : m;
-    s = (s < 10) ? "0" + s : s;
-    
-    var time = h + ":" + m + ":" + s ;
     document.getElementById("MyClock").innerText = dategap;
     document.getElementById("MyClock").textContent = dategap;
     
     setTimeout(showTime, 1000);
     
 }
+
+function leapYearCount(y,m,d){
+    var yearNow = new Date().getFullYear(),
+        yearThen = y,
+        beginYear = 0,
+        endYear = 0,
+        leapYearCount = 0;
+
+    var isLeapYear = function(year){
+      return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+    }
+
+    if(yearNow < y){
+       beginYear = yearNow;
+       endYear = y;
+    }else if(yearNow > y){
+       beginYear = y;
+       endYear = yearNow;
+    }else if(yearNow == y){
+       beginYear = y;
+       endYear = y;
+    }
+
+    for(i = beginYear; i <= endYear; i++){
+      if(isLeapYear(i)){
+        leapYearCount++;
+      }
+    }
+    return leapYearCount;
+}
+
 function start()
 {
 	var bgmusic = document.getElementById("playAudio");
