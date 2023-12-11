@@ -1,4 +1,6 @@
-
+var weddingYear = 2013;
+var weddingMonth = 12;
+var weddingDay = 7;
 
 var vidElement0 = document.getElementById('video0');
 var vidElement1 = document.getElementById('video1');
@@ -15,13 +17,13 @@ var vidSource4 = "video/video5.mp4";
 function showTime() 
 {
 var dt1 = new Date();
-var dt2	= new Date("2013-12-07");
+var dt2	= new Date(weddingYear +"-" +weddingMonth +"-" +weddingDay);
 
 var diff_date =  dt1 - dt2;
 
 var num_year = Math.floor(diff_date/31536000000);
 var num_month = Math.floor((diff_date % 31536000000)/2628000000);
-var num_day = Math.floor(((diff_date % 31536000000) % 2628000000)/86400000) - leapYearCount(2013,12,7);
+var num_day = Math.floor(((diff_date % 31536000000) % 2628000000)/86400000) - leapYearCount(weddingYear, weddingMonth, weddingDay);
 var num_hour = Math.floor((((diff_date % 31536000000) % 2628000000) %86400000)/3600000);
 var num_min = Math.floor(((((diff_date % 31536000000) % 2628000000) %86400000)%3600000) /60000);
 var num_sec = Math.floor((((((diff_date % 31536000000) % 2628000000) %86400000) %3600000) %60000)/1000);
